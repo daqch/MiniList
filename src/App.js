@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Navbar from "./components/navbar";
-import Content from "./components/Content";
-
+import * as components from "./components";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -33,45 +31,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar></Navbar>
+        <components.navbar></components.navbar>
         <div class="container">
-          <Content chores={this.state.chores}></Content>
-          <div class="row">
-            <div class="col">
-              <form class="form-inline">
-                <div class="form-group mb-2"></div>
-                <div class="form-group mx-sm-3 mb-2">
-                  <label for="inputPassword2" class="sr-only">
-                    Password
-                  </label>
-                  <input
-                    ref="chore"
-                    class="form-control"
-                    id="chore"
-                    placeholder="Add a chore..."
-                  ></input>
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary mb-2"
-                  onClick={this.addChore}
-                >
-                  Add to list
-                </button>
-              </form>
-              <select
-                class="form-control form-control-sm"
-                placeholder="Importance"
-              >
-                <option>Important</option>
-                <option>Optional</option>
-                <option>Secondary</option>
-              </select>
-            </div>
-            <div class="col">
-              <p>Your chores will appear here</p>
-            </div>
-          </div>
+          <components.Content></components.Content>
+          <components.userUi action={this.addChore}></components.userUi>
         </div>
       </div>
     );
