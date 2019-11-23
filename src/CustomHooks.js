@@ -1,28 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-const useSignUpForm = (callback) => {
-    const [inputs, setInputs] = useState({});
+const useSignUpForm = callback => {
+  const [inputs, setInputs] = useState({ name: "", importance: "" });
 
-    const handleInputChange = (event) => {
-        event.persist();
-        setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }));
-        console.log(inputs);
+  const handleInputChange = event => {
+    event.persist();
+    setInputs(inputs => ({
+      ...inputs,
+      [event.target.name]: event.target.value
+    }));
+  };
+  const handleSubmit = event => {
+    if (event) {
+      event.preventDefault();
     }
-    const handleSubmit = (event) => {
-        if (event) {
-            event.preventDefault();
-        }
-        alert(inputs);
-        console.log(inputs);
+  };
 
-    }
-
-    return {
-        handleSubmit,
-        handleInputChange,
-        inputs
-    };
-
-}
+  return {
+    handleSubmit,
+    handleInputChange,
+    inputs
+  };
+};
 
 export default useSignUpForm;

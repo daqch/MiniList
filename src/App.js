@@ -7,47 +7,61 @@ function App() {
   const [chores, setChores] = useState([]);
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm();
 
-  function handleSubmit = e => {
-    continue;
-  }
+  const handle = e => {
+    e.preventDefault();
+    if (
+      inputs.name === "" ||
+      inputs.name === "" ||
+      chores.some(e => e.name === inputs.name)
+    ) {
+      alert("Chore already exists or fields are empty!");
+    } else {
+      setChores(chores.concat([inputs]));
+    }
+  };
 
   return (
     <div>
       <components.navbar></components.navbar>
-      <div class="container">
+      <div className="container">
         <components.Content></components.Content>
-        <div class="row">
-          <div class="col">
-            <form class="form-inline" onSubmit={handle}>
-              <div class="form-group mb-2"></div>
-              <div class="form-group mx-sm-3 mb-2">
-                <label for="inputPassword2" class="sr-only">
+        <div className="row">
+          <div className="col">
+            <form className="form-inline" onSubmit={handle}>
+              <div className="form-group mb-2"></div>
+              <div className="form-group mx-sm-3 mb-2">
+                <label htmlFor="inputPassword2" className="sr-only">
                   Password
-            </label>
+                </label>
                 <input
                   onChange={handleInputChange}
-                  value={inputs.choreName}
-                  class="form-control"
+                  value={inputs.name}
+                  className="form-control"
                   name="name"
                   placeholder="Add a chore..."
                 ></input>
               </div>
-              <button
-                type="submit"
-                class="btn btn-primary mb-2"
-              >
+              <button type="submit" className="btn btn-dark mb-2">
                 Add to list
-          </button>
+              </button>
             </form>
-            <select name="importance" onChange={handleInputChange} class="form-control form-control-sm" style={{ width: "300px" }} placeholder="Importance">
+            <select
+              name="importance"
+              value={inputs.importance}
+              onChange={handleInputChange}
+              className="form-control form-control-sm"
+              style={{ width: "300px" }}
+              placeholder="Importance"
+            >
               <option>Important</option>
               <option>Optional</option>
               <option>Secondary</option>
             </select>
           </div>
-          <components.choreList chores={chores}></components.choreList>
         </div>
+        <components.choreList chores={chores}></components.choreList>
       </div>
+      <components.About></components.About>
     </div>
   );
 }
