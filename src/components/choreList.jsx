@@ -1,22 +1,15 @@
 import React from "react";
 
 function choreList(props) {
+  const chores = props.chores;
+  const listItems = chores.map((chore) =>
+    <li className="list-group-item" key={chore}>{chore}</li>
+  );
   return (
-    <div class="columns">
-      <div class="tab-content">
-        <div class="tab-pane fade show active" id="home" role="tabpanel">
-          ...
-        </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel">
-          ...
-        </div>
-        <div class="tab-pane fade" id="messages" role="tabpanel">
-          ...
-        </div>
-        <div class="tab-pane fade" id="settings" role="tabpanel">
-          ...
-        </div>
-      </div>
+    <div className="col">
+      <ul class="list-group">
+        {listItems}
+      </ul>
     </div>
   );
 }
