@@ -1,12 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my first React application. This project allowed me to learn about modern react and specially about hooks. (But also to review my Javascript skills!)
 
-### Todo list
 
-- [ ] Implement UI interface
+### Optional Todo list
 - [ ] Design log-in system
-- [ ] Create routes
+- [ ] Improve Styling
+
 
 ### Specefic components todo
 
-- [ ] Create a jsx for Chore
-- [ ] Create multiple components. App.js has too much text
+- [X] All components done
+
